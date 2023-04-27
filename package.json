@@ -24,7 +24,10 @@
     "postpack": "backstage-cli package postpack"
   },
   "dependencies": {
-    "@backstage/plugin-scaffolder-backend": "^1.13.0"
+    "@backstage/errors": "^1.1.5",
+    "@backstage/plugin-scaffolder-backend": "^1.13.0",
+    "backstage-plugin-scaffolder-backend-module-azure-devops-repositories": "https://github.com/fostemi/backstage-plugin-scaffolder-backend-module-azure-devops-repositories",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@backstage/backend-common": "^0.18.4",

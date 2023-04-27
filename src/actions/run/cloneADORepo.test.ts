@@ -1,21 +1,29 @@
 import { PassThrough } from 'stream';
-import { createAcmeExampleAction } from './example';
+import { cloneAzureRepoAction } from './cloneADORepo';
 import { getVoidLogger } from '@backstage/backend-common';
 
-describe('acme:example', () => {
+describe('ado:repo:clone', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
 
+  // test for clone azure repo action
+  // first we need to create the options
   it('should call action', async () => {
-    const action = createAcmeExampleAction();
+    const action = cloneAzureRepoAction(
+        options = {
+          
+        }
+    );
 
     const logger = getVoidLogger();
     jest.spyOn(logger, 'info');
 
     await action.handler({
       input: {
-        myParameter: 'test',
+        remoteUrl: 'test',
+        branch: 'backstage',
+        token: 'token',
       },
       workspacePath: '/tmp',
       logger,
@@ -28,7 +36,7 @@ describe('acme:example', () => {
     });
 
     expect(logger.info).toHaveBeenCalledWith(
-      'Running example template with parameters: test',
+      'Running run template with parameters: test',
     );
   });
 });
